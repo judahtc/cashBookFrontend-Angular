@@ -1,4 +1,5 @@
 import { Component, OnInit, HostListener } from '@angular/core';
+import { EntriesService } from '../entries.service';
 
 @Component({
   selector: 'app-portal',
@@ -6,16 +7,23 @@ import { Component, OnInit, HostListener } from '@angular/core';
   styleUrls: ['./portal.component.scss'],
 })
 export class PortalComponent implements OnInit {
+  data: any;
+  key: any;
+  value: any;
+  constructor(private entriesServies: EntriesService) {}
   ngOnInit(): void {
     this.checkScreenSize();
+    this.read_entries();
   }
+
   sidebar = true;
 
+  // The following code listens to screen size chan
   @HostListener('window:resize', ['$event'])
   onResize(event: Event) {
     this.checkScreenSize();
   }
-
+  // The following code checks screen size for responsiveness purposes
   checkScreenSize() {
     if (window.innerWidth <= 1024) {
       this.sidebar = false;
@@ -23,11 +31,22 @@ export class PortalComponent implements OnInit {
       this.sidebar = true;
     }
   }
+  // Enables toggling on small screens
   toggle_sidebar() {
     if (this.sidebar === true) {
       this.sidebar = false;
     } else {
       this.sidebar = true;
     }
+  }
+
+  // Read entries
+  read_entries() {
+    this.entriesServies.test().subscribe((result) => {
+      this.data = result;
+
+      this.key = Object.keys(this.data[0]);
+      this.value.push(Object.values(this.data[0]));
+    });
   }
 }

@@ -1,0 +1,70 @@
+<div class="dynamic-content">
+
+  <div class="metric">
+    <div class="card metric-cards">
+      <div class="card-body">
+
+
+        SUM: 600000000
+      </div>
+    </div>
+
+    <div class="card metric-cards">
+      <div class="card-body">
+
+
+        COUNT: 600000000
+      </div>
+    </div>
+
+    <div class="card metric-cards">
+      <div class="card-body">
+
+
+        AVERAGE:600000000
+      </div>
+    </div>
+
+
+
+
+  </div>
+
+  <hr>
+  <div class="manipulate-entries" style="display: flex;margin-bottom: 1%;margin-top: 3%;">
+    <div class="form-group col-md-2">
+      <input class="form-control form-control-sm" type="text" placeholder="search" />
+    </div>
+    &nbsp;
+    &nbsp;
+
+    <div class="add-entry"
+      style="background-color:rgb(241, 243, 243);width: 11%;border-radius: 4px;text-align: center;">
+      <span style="font-size: 90%;">create
+        entry<i class="fa fa-plus" style="font-size: 70%;margin-left: 5px;"></i></span>
+
+    </div>
+
+    &nbsp;
+    &nbsp;
+
+    <div class="add-entry"
+      style="background-color:rgb(241, 243, 243);width: 11%;border-radius: 4px;text-align: center;">
+      <span style="font-size: 90%;">Download<i class="fa fa-download"
+          style="font-size: 70%;margin-left: 5px;"></i></span>
+
+    </div>
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <tr style="font-size: 70%;">
+        <th *ngFor="let keys of key">{{keys}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let table of data" style="font-size: 70%;">
+        <td *ngFor="let values of key">{{table[values]}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

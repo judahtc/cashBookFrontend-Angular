@@ -35,7 +35,7 @@
 
 </div>
 
-<div class="wrapper d-flex align-items-stretch">
+<div class="wrapper">
   <nav id="sidebar" class="sidebar" *ngIf="sidebar">
     <img src="/assets/images/money-bag.png" alt="Spinning Image" class="money-bag">
     <div class="user">
@@ -65,65 +65,5 @@
     </div>
   </nav>
   <div class="dynamic-content">
-
-    <div class="metric">
-      <div class="card metric-cards">
-        <div class="card-body">
-
-
-          SUM: 600000000
-        </div>
-      </div>
-
-      <div class="card metric-cards">
-        <div class="card-body">
-
-
-          COUNT: 600000000
-        </div>
-      </div>
-
-      <div class="card metric-cards">
-        <div class="card-body">
-
-
-          AVERAGE:600000000
-        </div>
-      </div>
-
-
-
-
-    </div>
-    <hr>
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">First</th>
-          <th scope="col">Last</th>
-          <th scope="col">Handle</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>mdo</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>fat</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Larry the Bird</td>
-          <td>twitter</td>
-        </tr>
-      </tbody>
-    </table>
+    <router-outlet></router-outlet>
   </div>
-</div>
