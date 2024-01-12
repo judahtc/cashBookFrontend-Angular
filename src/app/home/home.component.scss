@@ -1,5 +1,6 @@
 // <-----------------------------FOR LAPTOPS ---------------------------------->
 @media only screen and (min-width: 1200px) {
+  /* Reduce the height of the input fields */
   .metric {
     display: flex;
     justify-content: space-between;
@@ -12,6 +13,19 @@
     height: 50px;
     border: 1px solid azure;
     box-shadow: 0.5px 0.5px 0.7px 0.7px rgb(158, 170, 195);
+  }
+
+  .manipulate-entries {
+    display: flex;
+    margin-bottom: 1%;
+    margin-top: 3%;
+  }
+  .add-entry,
+  .download-entry {
+    background-color: rgb(241, 243, 243);
+    width: 11%;
+    border-radius: 4px;
+    text-align: center;
   }
 }
 
@@ -30,5 +44,26 @@
     border: 1px solid azure;
     box-shadow: 0.5px 0.5px 0.7px 0.7px rgb(158, 170, 195);
     margin-bottom: 2%;
+  }
+
+  .manipulate-entries {
+    display: flex;
+    margin-bottom: 1%;
+    margin-top: 3%;
+  }
+
+  .add-entry,
+  .download-entry {
+    background-color: rgb(241, 243, 243);
+    width: 30%;
+    border-radius: 4px;
+    text-align: center;
+    height: 5%;
+    font-size: 60%;
+    padding: 5px;
+  }
+
+  .table-container {
+    overflow-x: auto;
   }
 }

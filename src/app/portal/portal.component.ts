@@ -13,7 +13,6 @@ export class PortalComponent implements OnInit {
   constructor(private entriesServies: EntriesService) {}
   ngOnInit(): void {
     this.checkScreenSize();
-    this.read_entries();
   }
 
   sidebar = true;
@@ -25,7 +24,7 @@ export class PortalComponent implements OnInit {
   }
   // The following code checks screen size for responsiveness purposes
   checkScreenSize() {
-    if (window.innerWidth <= 1024) {
+    if (window.innerWidth <= 1200) {
       this.sidebar = false;
     } else {
       this.sidebar = true;
@@ -41,12 +40,4 @@ export class PortalComponent implements OnInit {
   }
 
   // Read entries
-  read_entries() {
-    this.entriesServies.test().subscribe((result) => {
-      this.data = result;
-
-      this.key = Object.keys(this.data[0]);
-      this.value.push(Object.values(this.data[0]));
-    });
-  }
 }
