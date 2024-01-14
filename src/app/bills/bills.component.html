@@ -1,0 +1,25 @@
+<!-- billing.component.html -->
+
+<div *ngFor="let record of bills_list" class="d-flex">
+  <table class="table table-striped">
+    <tr>
+
+      <td>
+        <div style="text-transform:uppercase;">
+          {{ record.month }}
+        </div>
+      </td>
+      <td style="width: 100%;">
+        <div class="metric-cards">
+
+          <ul>
+            <li *ngFor="let bill of record.bills | keyvalue">
+              {{ bill.key }}: {{ bill.value }}
+            </li>
+          </ul>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+</div>
