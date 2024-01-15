@@ -7,13 +7,20 @@
     margin-bottom: 2%;
   }
 
+  .form-control:focus {
+    box-shadow: none;
+    border-color: #ced4da; /* Optionally reset the border color */
+  }
+
   .metric-cards {
     width: auto;
     font-size: 80%;
+    font-style: oblique;
+    font-weight: 400;
     height: auto;
     border: 1px solid azure;
     box-shadow: 0.5px 0.5px 0.7px 0.7px rgb(158, 170, 195);
-    margin-left: 5%;
+    margin-left: 3%;
     margin-top: 1%;
   }
 }
@@ -28,10 +35,14 @@
 
   .metric-cards {
     width: 100%;
-    font-size: 80%;
-    height: 48px;
+    font-size: 86%;
+    height: auto;
     border: 1px solid azure;
     box-shadow: 0.5px 0.5px 0.7px 0.7px rgb(158, 170, 195);
     margin-bottom: 2%;
+  }
+  .form-control:focus {
+    box-shadow: none;
+    border-color: #ced4da; /* Optionally reset the border color */
   }
 }

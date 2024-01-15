@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BillsService } from '../bills.service';
+import { ReusableModalService } from '../reusable-modal.service';
 
 @Component({
   selector: 'app-bills',
@@ -8,7 +9,10 @@ import { BillsService } from '../bills.service';
 })
 export class BillsComponent implements OnInit {
   bills_list: any;
-  constructor(private billsService: BillsService) {}
+  constructor(
+    private billsService: BillsService,
+    private modalService: ReusableModalService
+  ) {}
   ngOnInit(): void {
     this.bills();
   }
@@ -22,5 +26,9 @@ export class BillsComponent implements OnInit {
         alert(error.error.detail);
       },
     });
+  }
+
+  addEntryModal(content: any) {
+    this.modalService.open(content, 'md');
   }
 }

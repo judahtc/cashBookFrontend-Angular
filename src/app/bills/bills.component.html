@@ -5,21 +5,63 @@
     <tr>
 
       <td>
-        <div style="text-transform:uppercase;">
+        <div style="text-transform:uppercase;font-weight: bold;font-size: 90%;color: rgba(15, 15, 46, 0.3);">
           {{ record.month }}
         </div>
       </td>
       <td style="width: 100%;">
-        <div class="metric-cards">
+        <div class="metric-cards d-flex justify-content-between">
 
-          <ul>
+          <ul style="list-style-type: circle;">
             <li *ngFor="let bill of record.bills | keyvalue">
               {{ bill.key }}: {{ bill.value }}
             </li>
           </ul>
+
+          <i class="fa fa-plus" style="font-size: 70%;margin-left: 5px;" (click)="addEntryModal(content)"></i>
         </div>
       </td>
     </tr>
   </table>
 
 </div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h6 style="color: rgb(27, 31, 33)" class="modal-title" id="modal-basic-title">
+      Add Bills
+    </h6>
+  </div>
+  <div class="modal-body">
+    <section>
+      <form>
+        <div class="row">
+          <div class="col-md-6 mb-2">
+            <div class="form-outline datepicker w-100">
+              <label for="start_date" class="form-label"
+                style="font-size:12px;color: navy;margin-left: 3px;">Bill</label>
+              <input type="text" class="form-control form-control-md" style="font-size: 15px;"
+                formControlName="start_date" name="start_date" id="start_date" placeholder="" />
+
+            </div>
+
+
+          </div>
+
+          <div class="col-md-6 mb-2">
+            <div class="form-outline datepicker w-100">
+              <label for="appointDate" class="form-label"
+                style="font-size:12px;color: navy;margin-left: 3px;">Amount</label>
+              <input type="text" class="form-control form-control-md" style="font-size: 15px;"
+                formControlName="valuation_date" name="valuation_date" id="valuation_date" placeholder="" />
+
+            </div>
+
+
+          </div>
+        </div>
+        <button type="button" class="btn btn-secondary col-md-12" style="font-size: small;">SUBMIT</button>
+      </form>
+    </section>
+  </div>
+</ng-template>
