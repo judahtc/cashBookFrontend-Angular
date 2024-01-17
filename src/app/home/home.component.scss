@@ -38,12 +38,14 @@
   }
 
   .metric-cards {
-    width: 100%;
+    width: 96%;
     font-size: 80%;
     height: 48px;
     border: 1px solid azure;
     box-shadow: 0.5px 0.5px 0.7px 0.7px rgb(158, 170, 195);
     margin-bottom: 2%;
+    margin-left: auto; /* Set the left margin to auto */
+    margin-right: auto;
   }
 
   .manipulate-entries {

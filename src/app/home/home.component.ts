@@ -4,6 +4,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ReusableModalService } from '../reusable-modal.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +19,8 @@ export class HomeComponent implements OnInit {
   constructor(
     private entriesServies: EntriesService,
     private modalService: ReusableModalService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private toastr: ToastrService
   ) {}
 
   //@ts-ignore
@@ -60,11 +62,13 @@ export class HomeComponent implements OnInit {
   addEntry() {
     this.entriesServies.add_entries(this.form.value).subscribe({
       next: (result) => {
+        this.toastr.success('successfully added');
+
         console.log(result);
       },
 
       error: (error) => {
-        console.log(error);
+        this.toastr.error(error.error.detail);
       },
     });
   }
