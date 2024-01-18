@@ -13,6 +13,7 @@ import { BillsComponent } from './bills/bills.component';
 import { ToastrModule } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
 import { SpendingsComponent } from './spendings/spendings.component';
+import { BusinessUsersComponent } from './business-users/business-users.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +22,7 @@ import { SpendingsComponent } from './spendings/spendings.component';
     HomeComponent,
     BillsComponent,
     SpendingsComponent,
+    BusinessUsersComponent,
   ],
   imports: [
     BrowserModule,
