@@ -12,6 +12,7 @@ export class BillsComponent implements OnInit {
   bills_list: any;
   key: any;
   bill_id: any;
+  test_sum: any;
   constructor(
     private billsService: BillsService,
     private modalService: ReusableModalService,
@@ -24,10 +25,14 @@ export class BillsComponent implements OnInit {
   bills() {
     this.billsService.bills().subscribe({
       next: (result) => {
+        this.test_sum = result;
+        // this.test_sum.bills = { sum: '1000' };
+        console.log(this.test_sum);
+
         this.bills_list = result.sort(
           (a: any, b: any) => (b.id as number) - a.id
         );
-        console.log(this.bills_list);
+        // console.log(this.bills_list);
       },
       error: (error) => {
         this.toastr.error(error.error.detail);

@@ -10,6 +10,7 @@ export class EntriesService {
   constructor(private http: HttpClient) {}
 
   entries() {
+    console.log(this.base_url);
     return this.http.get<any>(this.base_url + '/entries/read');
   }
   get_summaries() {

@@ -41,7 +41,7 @@ export class HomeComponent implements OnInit {
   read_entries() {
     this.entriesServies.entries().subscribe((result) => {
       this.data = result;
-
+     
       this.key = Object.keys(this.data[0]);
       this.value.push(Object.values(this.data[0]));
     });
