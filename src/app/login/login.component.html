@@ -1,2 +1,127 @@
-<p>login works!</p>
-<button type="button" class="btn btn-primary">Primary</button>
+<div
+  style="min-height: 100vh; display: flex; justify-content: center; align-items: center; grid-template-columns: repeat(2, minmax(0, 1fr));">
+  <div style="position: absolute; bottom: 5px; left: 5px; font-size: 12px;">
+    &copy; Copyrights 2023. Claxon Business Solutions.
+  </div>
+  <form style="width: 27%;; margin: 0 auto;" ngNativeValidate>
+    <div style="margin-bottom: 1rem; text-align: center;">
+      <h3 style="font-weight: bold; font-size: 110%;color: #325980;">Sign in to IFRS 17 PAA</h3>
+      <p style="font-size: 0.875rem;">Enter your email and password to login</p>
+    </div>
+
+    <div style="display: grid; gap: 1.3rem;">
+      <input type="email" id="inputEmail"
+        style="border: 0.1px solid #ccc; border-radius: 0.25rem; padding: 0.5rem 0.75rem; outline: none;"
+        placeholder="Email address" required autofocus formControlName="email" name="email" required>
+
+      <input type="password" id="inputPassword"
+        style="border: 1px solid #ccc; border-radius: 0.25rem; padding: 0.5rem 0.75rem; outline: none;"
+        placeholder="Password" required formControlName="password" name="password" required>
+    </div>
+
+    <button
+      style="margin-top: 1rem; outline: none; padding: 0.5rem 1rem;border: none; border-radius: 0.25rem; width: 100%; background-image: linear-gradient(to bottom right, #d3e0fd, #68a3de); font-weight: bold; align-items: center; justify-content: center; gap: 0.5rem;margin-top: 6%;color: #21618C;"
+      type="submit">
+      <span>Sign in</span>
+      <span style="font-size: 60%;margin-left: 4%;">
+        <span class="spinner-border" role="status" style="height: 13px; width: 13px;">
+          <span class="sr-only" id="loading" style="height: 13px; width: 13px;"></span>
+        </span>
+      </span>
+
+    </button>
+
+
+    <i style="color: red; margin-top: 0.25rem; font-size: 0.675rem;"></i>
+    <br>
+    <a routerLink="#" id="forgot_pswd"
+      style="font-size: 0.75rem; font-weight: bold; text-decoration: underline; text-align: center;margin-left: -2%;">Forgot
+      password?</a>
+
+
+
+  </form>
+  <div
+    style="width: 52%;flex-direction: column; padding: 0 2rem; justify-content: center; height: calc(100vh - 0.5rem); margin-top: auto; border-radius: 1rem 0 0 0;background-image: linear-gradient(to bottom right, #d3e0fd, #68a3de)">
+    <div style="font-size: 90%; font-weight: bold; margin-bottom: 0.5rem;color: rgb(194, 203, 218);" class="mt-5">
+      Description, to be put to the left
+    </div>
+
+
+  </div>
+</div>
+
+
+
+<ng-template #content1 let-modal style="padding: 0%;">
+  <div>
+
+    <!-- <div class="modal-body"> -->
+    <button style="float: right;" type="button" class="btn-close" aria-label="Close"
+      (click)="[modal.dismiss('Cross click')]"></button>
+
+    <div class=" ">
+      <div class="row justify-content-center">
+        <div class="mb-4">
+          <form class="card mt-4">
+            <div class="card-body">
+              <div class="form-group">
+                <h6 style="color: #325980;">PASSWORD RESET</h6>
+                <input class="form-control" formControlName="email" type="text" id="email" name="email"
+                  required=""><small class="form-text text-muted">Enter the email address. We will
+                  email a link to the password reset page to this address.</small>
+              </div>
+            </div>
+            <div class="card-footer">
+              <button class="btn btn-outline-dark" type="submit">Get New
+                Password</button>
+              <!-- <button class="btn btn-danger" type="submit">Back to Login</button> -->
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+
+<ng-template #content let-modal class="p-4">
+  <div style="width: 98%;margin:auto">
+
+    <!-- <div class="modal-body"> -->
+    <button style="float: right;" type="button" class="btn-close" aria-label="Close"
+      (click)="[modal.dismiss('Cross click')]"></button>
+
+    <div class=" mb-2 ">
+      <div class="row justify-content-center">
+        <div class="">
+
+
+          <form class="card mt-4 mb-4 ml-2 mr-2">
+            <div class="card-body">
+              <small style="font-size: 80%;">Enter the 6 digit One-Time-Password (OTP) from your authenticator app <i
+                  class="fa fa-mobile" style="font-size: 90%;"></i></small>
+              <div class="form-group">
+                <input class="form-control" type="text" id="otp" name="otp" required=""><small
+                  class="form-text text-muted">Please enter the one time password to proceed to your
+                  account</small><br>
+                <!-- <small style="color: rgb(128, 0, 26);">OTP expires in <b>0:{{timeLeft}}</b></small> -->
+              </div>
+            </div>
+            <div class="card-footer d-flex justify-content-between align-items-center" style="font-size: 80%;">
+              <button class="btn btn-outline-dark" type="submit">Submit OTP</button>
+              <!-- <button class="btn btn-outline-dark" type="submit" (click)="onSubmit()"> Resend</button> -->
+
+              <!-- <button class="btn btn-danger" type="submit">Back to Login</button> -->
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+  </div>
+</ng-template>
