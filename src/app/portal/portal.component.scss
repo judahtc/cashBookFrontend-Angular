@@ -24,6 +24,9 @@
     width: 13.5%;
   }
 
+  .sidebar .links {
+    margin-left: -5%;
+  }
   .sidebar .user {
     margin-top: 1%;
     border-radius: 3px;
@@ -43,13 +46,13 @@
     color: #454545;
     margin-bottom: 5%;
     padding-left: 10px;
-
+    width: 100%;
     padding-right: 10px;
-    margin-right: 5%;
   }
-  .sidebar .links ul li a {
+  .sidebar .links ul a {
     color: #454545;
     font-weight: 450;
+    display: flex;
   }
 
   .sidebar ul {
@@ -103,13 +106,17 @@
     color: #454545;
     margin-bottom: 3%;
   }
-  .sidebar .links ul li a {
+  .sidebar .links ul a {
     color: #454545;
     font-weight: 450;
   }
 
   .sidebar ul {
     margin-top: 5%;
+  }
+
+  .sidebar .links ul a {
+    display: block;
   }
 
   .sidebar .fa {
