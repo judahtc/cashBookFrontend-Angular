@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BillsService } from '../bills.service';
 import { ReusableModalService } from '../reusable-modal.service';
 import { ToastrService } from 'ngx-toastr';
-
+import { ChartTypeRegistry } from 'chart.js';
 @Component({
   selector: 'app-bills',
   templateUrl: './bills.component.html',
@@ -13,6 +13,8 @@ export class BillsComponent implements OnInit {
   key: any;
   bill_id: any;
   test_sum: any;
+  x_axis: any;
+  y_axis: any;
   constructor(
     private billsService: BillsService,
     private modalService: ReusableModalService,
@@ -29,17 +31,45 @@ export class BillsComponent implements OnInit {
         // this.test_sum.bills = { sum: '1000' };
         console.log(this.test_sum);
 
+        let billsOnly: { [key: string]: number }[] = this.test_sum.map(
+          (item: { bills: { [key: string]: number } }) => item.bills
+        );
+        let keys: string[] = [];
+        let values: number[] = [];
+
+        billsOnly.forEach((bill) => {
+          Object.keys(bill).forEach((key) => {
+            keys.push(key);
+            values.push(bill[key]);
+          });
+        });
+
+        console.log('Keys:', keys);
+        console.log('Values:', values);
+
+        this.x_axis = keys;
+        this.y_axis = values;
+        console.log(billsOnly);
+        this.barChartLabels = this.x_axis;
+        this.barChartData = [{ data: this.y_axis, label: 'Bills' }];
+
         this.bills_list = result.sort(
           (a: any, b: any) => (b.id as number) - a.id
         );
-        // console.log(this.bills_list);
       },
       error: (error) => {
         this.toastr.error(error.error.detail);
       },
     });
   }
-
+  public barChartOptions = {
+    scaleShowVerticalLines: false,
+    responsive: true,
+  };
+  public barChartLabels = [];
+  public barChartType: keyof ChartTypeRegistry = 'bar'; // Assign a valid chart type here
+  public barChartLegend = true;
+  public barChartData: any;
   add_bill_element() {
     const bill = document.getElementById('bill') as HTMLInputElement | null;
     const amount = document.getElementById('amount') as HTMLInputElement | null;

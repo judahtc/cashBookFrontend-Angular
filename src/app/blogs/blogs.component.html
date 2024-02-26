@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amazon S3 || Angular </title>
+  <style>
+    /* CSS for Cards */
+
+    /* Add any CSS styling for your code block here */
+
+
+    .card {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .card h2 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="main-title">
+      <h1>A step to step guide: Hosting your frontend application in Amazon S3</h1>
+      <hr>
+
+      <div class="writer">
+        Judah T Chisare || +263785430774 || jaycea247@gmail.com<br>
+        AWS Certified Developer -Associate || AWS Certified Solutions Architech -Associate
+
+      </div>
+      <hr>
+      <img src="/assets/images/angular plus s3.png" alt="Spinning Image" class="top-pic">
+      <p class="intro">
+        In this blog, l am going to be writing on hosting and deploying your frontend application (React JS/ Angular) to
+        Amazon S3 in less than 10mins. In developer terms, Amazon S3 (Simple Storage Service) is a scalable cloud
+        storage service provided by Amazon Web Services (AWS). It allows developers to store and retrieve any amount of
+        data at any time from anywhere on the web. In this case, we are going to use Amazon S3 to seamlessly host static
+        websites at insignificant costs.
+      </p>
+    </div>
+  </header>
+
+  <div class="content1" style="margin-left: 2%;">
+    <div class="">
+      <b style="font-weight: 800;margin-bottom: 10px;">Step 1:</b>
+      <br>
+      <span> Creating the Amazon S3 Bucket </span>
+      <ol>
+        <li>Sign into your <a href="https://aws.amazon.com/console/">AWS Management Console</a></li>
+        <li>Navigate to the Amazon S3 service</li>
+        <li>Under the S3 console,General purpose buckets tab, click “Create bucket” and follow the prompts to create the
+          bucket.</li><br>
+
+        <ol>
+          <li>Your bucket Name should be unique globally</li>
+          <li>Your bucket should be in a specific AWS Region of your choice</li>
+          <li>Leave Object Ownership to "ACLs disabled (recommended)"</li>
+          <li>Under <b>Block Public Access settings for this bucket</b>, untick "Block all public access" to allow
+            public
+            read access to the bucket objects, then tick the acknowledgement box for unblocking public access</li>
+          <li>Leave the next options to default and click "create bucket"</li>
+        </ol>
+        <HR>
+        <li>After the bucket has been successfully created, navigate the bucket and click on <B
+            style="font-weight: 600;">Properties</B></li>
+        <ol>
+          <li>Scroll to the bottom and click "Edit" on <b style="font-weight: 600;">Static website hosting</b>
+          <li>Select "Enable"</li>
+          <li>Choose "Host a static website" under Hosting type</li>
+
+          <li>Type <i>"index.html"</i> in the Index document form </li>
+          <li>Also Type <i>"index.html"</i> again in the Error document form </li>
+          <li>Click "Save Changes" and navigate back to Properties</li>
+          <li>If you navigate down to "Static website hosting", thats where you find the website URL</li>
+        </ol>
+        <hr>
+        <li>Configure the Bucket Security</li>
+
+        <ol>
+          <li>Navigate to Permissions</li>
+          <li>scroll to Bucket Policy and click Edit</li>
+          <li>Copy and paste the following policy, then edit the arn, replacing with your bucket name</li>
+
+          <div class="code-container">
+            <!-- Your code goes here -->
+            <!-- Example: -->
+            <span>
+              <pre>{{ policy | json }}</pre>
+
+            </span>
+
+
+          </div>
+          NB: <i style="font-size: 80%;">Replace "YOUR-BUCKET-NAME" with your BUCKET NAME</i>
+
+          <li>Save changes</li>
+        </ol>
+
+      </ol>
+      <hr>
+      <b style="font-weight: 800;">Step 2:</b>
+      <br><span> Configure Your Frontend Application for Deployment </span>
+
+      <ol>
+        <li>
+          Build your application
+
+          <ol>
+            <li>Navigate to the application's root folder</li>
+            <li>Open your code Editor's terminal and type your build command:</li>
+            <br>
+            <span style="font-weight: 600;">Angular</span>
+            <div class="code-container">
+              <!-- Your code goes here -->
+              <!-- Example: -->
+              <span>
+                <pre>ng build</pre>
+              </span>
+
+
+            </div>
+            <span style="font-weight: 600;">React</span>
+            <div class="code-container">
+              <!-- Your code goes here -->
+              <!-- Example: -->
+              <span>
+                <pre>npm run build</pre>
+              </span>
+
+
+            </div>
+          </ol>
+        </li>
+      </ol>
+      <hr>
+      <b style="font-weight: 800;">Step 3:</b>
+      <br><span> Deploying Your Application to S3</span>
+
+      Options
+      <ul>
+        <li>Manually Uploading</li>
+        <li>Programmatic deployment <sup style="font-size: 40%;color: green;">Coming soon </sup></li>
+        <li>CICD with Code Pipeline <sup style="font-size: 40%;color: green;">Coming soon </sup></li>
+      </ul>
+
+      <br>
+      <span style="font-weight: 700;">Manually Uploading the built code</span>
+      <ol>
+        <li>Open you Amazon s3 bucket and click "upload" </li>
+        <li>click "Add files" </li>
+        <li>Browse in your local computer to the root folder of your application </li>
+        <li>Locate the build folder and open it (Usually "dist") </li>
+        <li>locate the folder with your index.html file and select all the files in that folder, then click open and
+          upload</li>
+        <li>Now visit your website URL to access the application</li>
+
+      </ol>
+    </div>
+
+  </div>
+</body>
+
+</html>

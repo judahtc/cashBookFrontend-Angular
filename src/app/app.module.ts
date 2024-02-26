@@ -14,6 +14,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
 import { SpendingsComponent } from './spendings/spendings.component';
 import { BusinessUsersComponent } from './business-users/business-users.component';
+import { NgChartsModule } from 'ng2-charts';
+import { BlogsComponent } from './blogs/blogs.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +25,7 @@ import { BusinessUsersComponent } from './business-users/business-users.componen
     BillsComponent,
     SpendingsComponent,
     BusinessUsersComponent,
+    BlogsComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,6 +35,7 @@ import { BusinessUsersComponent } from './business-users/business-users.componen
     ReactiveFormsModule,
     CommonModule,
     BrowserAnimationsModule,
+    NgChartsModule,
     ToastrModule.forRoot(),
   ],
   providers: [],

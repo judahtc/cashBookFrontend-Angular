@@ -4,6 +4,7 @@ import { PortalComponent } from './portal/portal.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { BillsComponent } from './bills/bills.component';
+import { BlogsComponent } from './blogs/blogs.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,7 @@ const routes: Routes = [
   },
 
   { path: '', component: LoginComponent },
+  { path: 'blogs', component: BlogsComponent },
 ];
 
 @NgModule({

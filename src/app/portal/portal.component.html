@@ -1,75 +1,120 @@
-<div class="mynav">
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light mb-2 p-0" style="box-shadow:  2px 2px 1px rgb(229, 230, 230);">
+<style>
+  a.selected {
+    background-color: white;
+    margin-right: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
 
-    <div class="d-flex justify-content-between" style="width: 100%;">
-      <a class="navbar-brand " style="font-weight:bolder;font-size: 90%;color:#454545;font-weight: 500;">
-        <i class="fa fa-dollar" style="color: green;"></i>
+  .dynamic-content {
+    height: calc(100vh - 50px);
+    /* Adjust height according to your navbar height */
+    overflow-y: auto;
+  }
 
-        PERSONAL CASH BOOK
-      </a>
+  /* Make mynav fixed */
+  .mynav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    /* Adjust z-index as needed */
+  }
 
+  /* Adjust content position to go under mynav */
+  .wrapper {
+    margin-top: 50px;
+    /* Adjust according to mynav height */
+  }
 
-      <div class="d-flex justify-content-between">
+  /* Ensure navbar remains visible when scrolling */
+  nav.navbar {
+    position: relative;
+    z-index: 1001;
 
-        <a class="nav-link top-nav-links"
-          style="padding: 2px;text-align: center;color:#454545;font-weight: 500;font-size: 90%;" href="/login">
-          <i class="fa fa-sign-out" style="color: #454545;" aria-hidden="true"></i>
-          logout
-        </a> <a class="nav-link  top-nav-links"
-          style="margin-left: 5px;padding: 2px;text-align: center;color:#454545;font-weight: 500;font-size: 90%"
-          href="/portal/change-pass">
-          <i class="fa fa-gear" style="color: #454545;" aria-hidden="true"></i>
-          config
+  }
+
+  .dynamic-content::-webkit-scrollbar {
+    display: none;
+  }
+</style>
+
+<body style="overflow-x:hidden;overflow-y:hidden">
+  <div class="mynav">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light mb-2 p-0" style="box-shadow:  2px 2px 1px rgb(229, 230, 230);">
+
+      <div class="d-flex justify-content-between" style="width: 100%;">
+        <a class="navbar-brand " style="font-weight:bolder;font-size: 90%;color:#454545;font-weight: 500;">
+          <i class="fa fa-dollar" style="color: green;"></i>
+
+          PERSONAL CASH BOOK
         </a>
 
+
+        <div class="d-flex justify-content-between">
+
+          <a class="nav-link top-nav-links"
+            style="padding: 2px;text-align: center;color:#454545;font-weight: 500;font-size: 90%;" href="/login">
+            <i class="fa fa-sign-out" style="color: #454545;" aria-hidden="true"></i>
+            logout
+          </a> <a class="nav-link  top-nav-links"
+            style="margin-left: 5px;padding: 2px;text-align: center;color:#454545;font-weight: 500;font-size: 90%"
+            href="/portal/change-pass">
+            <i class="fa fa-gear" style="color: #454545;" aria-hidden="true"></i>
+            config
+          </a>
+
+        </div>
+        <div class="collapse-menu">
+          <button (click)="toggle_sidebar()" class="btn sm"><i class="fa fa-bars" style="color: #454545;"
+              aria-hidden="true"></i></button>
+        </div>
       </div>
-      <div class="collapse-menu">
-        <button (click)="toggle_sidebar()" class="btn sm"><i class="fa fa-bars" style="color: #454545;"
-            aria-hidden="true"></i></button>
-      </div>
-    </div>
 
-  </nav>
+    </nav>
 
-</div>
-
-<div class="wrapper">
-  <nav id="sidebar" class="sidebar" *ngIf="sidebar">
-    <img src="/assets/images/money-bag.png" alt="Spinning Image" class="money-bag">
-    <div class="user">
-      JUDAH T CHISARE
-    </div>
-    <div class="links">
-      <ul>
-        <a href="portal/home">
-          <li>
-            <i class="fa fa-suitcase"></i>Savings
-          </li>
-        </a>
-        <a href="portal/bills">
-          <li>
-            <i class="fa fa-money"></i>Bills
-          </li>
-        </a>
-        <a href="#">
-          <li>
-            <i class="fa fa-credit-card"></i>Withdrawals
-          </li>
-        </a>
-        <a style="margin-left: 10px;" href="#">
-          <li>
-            <i class="fa fa-dollar"></i>Debts
-          </li>
-        </a>
-        <a href="#">
-          <li>
-            <i class="fa fa-money"></i>Credits
-          </li>
-        </a>
-      </ul>
-    </div>
-  </nav>
-  <div class="dynamic-content">
-    <router-outlet></router-outlet>
   </div>
+
+  <div class="wrapper">
+    <nav id="sidebar" class="sidebar" *ngIf="sidebar">
+      <img src="/assets/images/money-bag.png" alt="Spinning Image" class="money-bag">
+      <div class="user">
+        JUDAH T CHISARE
+      </div>
+      <div class="links">
+        <ul>
+          <a (click)="onSavings()" [class.selected]="savings">
+            <li>
+              <i class="fa fa-suitcase"></i>Savings
+            </li>
+          </a>
+          <a (click)="onBills()" [class.selected]="bills">
+            <li>
+              <i class="fa fa-money"></i>Bills
+            </li>
+          </a>
+          <a (click)="onWithdrawals()" [class.selected]="withdrawals">
+            <li>
+              <i class="fa fa-credit-card"></i>Withdrawals
+            </li>
+          </a>
+          <a style="margin-left: 10px;" (click)="onDebts()" [class.selected]="debts">
+            <li>
+              <i class="fa fa-dollar"></i>Debts
+            </li>
+          </a>
+          <a (click)="onCredits()" [class.selected]="credits">
+            <li>
+              <i class="fa fa-money"></i>Credits
+            </li>
+          </a>
+        </ul>
+      </div>
+    </nav>
+    <div class="dynamic-content" style="height: 90v;overflow-y: auto;overflow-x: hidden;">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</body>

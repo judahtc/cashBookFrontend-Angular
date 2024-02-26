@@ -1,0 +1,115 @@
+@media only screen and (min-width: 1200px) {
+  /* Reduce the height of the input fields */
+  .metric {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2%;
+  }
+
+  li {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  ul {
+    margin: 1%;
+  }
+  .code-container {
+    border: 1px solid #ccd;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 15px 0;
+    background-color: #f9f9f9;
+    overflow-x: auto;
+    color: black;
+  }
+  .content1 {
+    font-size: 130%;
+  }
+
+  body {
+    margin-left: 15%;
+    margin-right: 20%;
+    font-family: Roboto;
+  }
+
+  .intro {
+    color: #2b2422;
+    font-size: 130%;
+    margin-left: 2%;
+  }
+  .main-title {
+    margin-top: 2%;
+    margin-bottom: 2%;
+  }
+  .writer {
+    font-size: 80%;
+    color: gray;
+    // text-align: center;
+  }
+  .top-pic {
+    display: block;
+    height: 120px;
+    width: 500px;
+    margin-left: auto; /* Set the left margin to auto */
+    margin-right: auto;
+    margin-top: 1%;
+    margin-bottom: 1%;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  body {
+    margin-left: 5%;
+    margin-right: 5%;
+    font-family: Roboto;
+  }
+
+  .writer {
+    font-size: 80%;
+    color: gray;
+  }
+
+  .code-container {
+    border: 1px solid #ccd;
+    border-radius: 5px;
+    padding: 1%;
+    margin: 4% 0;
+    background-color: #f9f9f9;
+    overflow-x: auto;
+    color: black;
+  }
+
+  li {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  .content1 {
+    font-size: 108%;
+  }
+
+  .main-title {
+    font-size: 80%;
+    margin-top: 1%;
+  }
+  .intro {
+    color: #2b2422;
+    font-size: 115%;
+    margin-left: 2%;
+  }
+  .metric {
+    display: block;
+    justify-content: space-between;
+    margin-bottom: 1%;
+  }
+
+  .top-pic {
+    display: block;
+    height: 80px;
+    width: 200px;
+    margin-left: auto; /* Set the left margin to auto */
+    margin-right: auto;
+    margin-top: 1%;
+    margin-bottom: 1%;
+  }
+}
